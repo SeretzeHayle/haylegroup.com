@@ -81,6 +81,12 @@
   }
   .contact-strip a { color: var(--navy); text-decoration: none; font-weight: 600; }
   .contact-strip a:hover { text-decoration: underline; }
+  .badge-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+  }
   .badge-tag {
     display: inline-block;
     border: 1.5px solid var(--navy);
@@ -93,6 +99,7 @@
     white-space: nowrap;
     align-self: flex-start;
     font-family: Arial, sans-serif;
+    text-align: center;
   }
 
   /* ---------- CTA buttons ---------- */
@@ -285,7 +292,10 @@
           <a class="btn-outline" href="#contact">Contact Us</a>
         </div>
       </div>
-      <div class="badge-tag">NMSDC&nbsp;CERTIFIED&nbsp;MBE</div>
+      <div class="badge-stack">
+        <div class="badge-tag">NMSDC&nbsp;CERTIFIED&nbsp;MBE</div>
+        <div class="badge-tag">NJ&nbsp;CERTIFIED&nbsp;MBE</div>
+      </div>
     </div>
   </header>
 
@@ -294,7 +304,7 @@
       <h2 class="section-title">About The Hayle Group</h2>
       <div class="intro-grid">
         <div class="intro-copy">
-          <p>The Hayle Group LLC is an NMSDC-certified MBE safety consulting firm specializing in transit, infrastructure, and public-sector construction safety oversight.</p>
+          <p>The Hayle Group LLC is an NMSDC-Certified and New Jersey Certified Minority Business Enterprise (MBE) safety consulting firm specializing in transit, infrastructure, and public-sector construction safety oversight.</p>
           <p>With 17+ years of safety experience on transit and infrastructure projects, the firm brings direct, hands-on experience within MTA/NYCT, LIRR, NJ Transit, Amtrak, and NYS DOT operating environments &mdash; including full responsibility for safety oversight, compliance enforcement, Safe Work Plan review and approval, and incident reporting in high-risk, active transit conditions.</p>
           <p>The Hayle Group is a principal-led firm providing independent construction safety consulting and compliance services to owners, public agencies, construction managers, design-builders, and contractors throughout New York and New Jersey, with direct oversight and accountability on every engagement.</p>
           <div class="avail-box">
@@ -363,9 +373,9 @@
       <h2 class="section-title">Certifications &amp; Registrations</h2>
       <div class="cred-grid">
         <div>&#10003; NMSDC Certified MBE</div>
+        <div>&#10003; NJ Certified MBE</div>
         <div>&#10003; SAM.gov Registered</div>
         <div>&#10003; PASSPort Approved</div>
-        <div class="pending">&#9675; NJ MBE (Pending)</div>
       </div>
       <div class="cta-row">
         <a class="btn" href="capability-statement.pdf" target="_blank" rel="noopener">View Full Capability Statement (PDF)</a>
