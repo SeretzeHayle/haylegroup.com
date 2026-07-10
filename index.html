@@ -142,11 +142,29 @@
     padding-bottom: 8px;
   }
 
-  .intro-grid { display: flex; gap: 36px; flex-wrap: wrap; align-items: flex-start; }
-  .intro-copy { flex: 1.4; min-width: 280px; }
+  .intro-grid { display: flex; gap: 36px; align-items: flex-start; }
+  .intro-copy { flex: 1.35; min-width: 280px; }
   .intro-copy p { color: var(--text); font-size: 15.5px; margin: 0 0 14px 0; }
-  .intro-photos { flex: 1; min-width: 220px; max-width: 320px; }
-  .intro-photos img { width: 100%; border-radius: 6px; display: block; box-shadow: 0 3px 12px rgba(0,0,0,0.1); }
+
+  .photo-side {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .photo-side img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+  }
+  @media (max-width: 860px) {
+    .intro-grid { flex-wrap: wrap; }
+    .intro-copy { flex: 1 1 100%; }
+    .photo-side { flex: 1 1 100%; flex-direction: row; flex-wrap: wrap; }
+    .photo-side img { width: calc(50% - 6px); }
+  }
 
   .avail-box {
     background: var(--lightbg);
@@ -324,8 +342,12 @@
             <b>Available for:</b> Owner&rsquo;s Representative, General Contractor, Design-Builder, Emergency Response, and Short-Term Safety Coverage throughout New York and New Jersey.
           </div>
         </div>
-        <div class="intro-photos">
-          <img src="photos.jpg" alt="The Hayle Group on active MTA transit and infrastructure job sites">
+        <div class="photo-side">
+          <img src="photo_1.jpg" alt="Hayle Group safety oversight on active transit scaffold work">
+          <img src="photo_2.jpg" alt="Hayle Group site safety inspection at rebar cage installation">
+          <img src="photo_3.jpg" alt="Hayle Group safety oversight during concrete pour operations">
+          <img src="photo_4.jpg" alt="Hayle Group safety oversight on elevated steel structure">
+          <img src="photo_6.jpg" alt="Hayle Group safety oversight at active transit station">
         </div>
       </div>
     </div>
