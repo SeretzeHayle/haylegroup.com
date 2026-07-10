@@ -5,432 +5,112 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Hayle Group LLC | Transit &amp; Infrastructure Safety Consulting</title>
 <meta name="description" content="NMSDC-certified MBE safety consulting firm specializing in transit, infrastructure, and public-sector construction safety oversight in New York and New Jersey.">
-<style>
-  :root {
-    --navy: #16324F;
-    --navy-dark: #0F2438;
-    --orange: #C7511F;
-    --text: #2A343D;
-    --muted: #5A6772;
-    --bg: #FAF9F6;
-    --card: #FFFFFF;
-    --border: #DCE2E7;
-    --lightbg: #EDF1F4;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.6;
-  }
-  h1, h2, h3 { font-family: "Georgia", "Times New Roman", serif; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-
-  /* ---------- top bar ---------- */
-  .topbar {
-    background: var(--navy-dark);
-    color: #cfd9e2;
-    font-size: 13px;
-    padding: 7px 0;
-  }
-  .topbar .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
-  .topbar a { color: #cfd9e2; text-decoration: none; }
-  .topbar a:hover { color: #fff; }
-
-  /* ---------- header ---------- */
-  header.hero {
-    background: var(--card);
-    padding: 40px 0 34px 0;
-    border-bottom: 4px solid var(--navy);
-  }
-  .hero-inner {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    flex-wrap: wrap;
-  }
-  .headshot {
-    width: 128px;
-    height: 128px;
-    border-radius: 8px;
-    object-fit: cover;
-    box-shadow: 0 3px 10px rgba(22,50,79,0.18);
-    flex-shrink: 0;
-  }
-  .hero-text { flex: 1; min-width: 260px; }
-  .hero-text h1 {
-    margin: 0 0 4px 0;
-    font-size: clamp(26px, 4vw, 38px);
-    color: var(--navy);
-    font-weight: 700;
-  }
-  .tagline {
-    color: var(--orange);
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    font-size: 14px;
-    margin: 2px 0 10px 0;
-    font-family: Arial, sans-serif;
-  }
-  .contact-strip {
-    font-size: 14px;
-    color: var(--muted);
-  }
-  .contact-strip a { color: var(--navy); text-decoration: none; font-weight: 600; }
-  .contact-strip a:hover { text-decoration: underline; }
-  .badge-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-  .badge-tag {
-    display: inline-block;
-    border: 1.5px solid var(--navy);
-    color: var(--navy);
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    padding: 5px 12px;
-    border-radius: 3px;
-    white-space: nowrap;
-    align-self: flex-start;
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-
-  /* ---------- CTA buttons ---------- */
-  .btn {
-    display: inline-block;
-    background: var(--navy);
-    color: #fff !important;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 13px 26px;
-    border-radius: 4px;
-    font-family: Arial, sans-serif;
-    transition: background 0.15s ease;
-  }
-  .btn:hover { background: var(--orange); }
-  .btn-outline {
-    display: inline-block;
-    border: 1.5px solid var(--navy);
-    color: var(--navy) !important;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 11px 24px;
-    border-radius: 4px;
-    font-family: Arial, sans-serif;
-  }
-  .btn-outline:hover { background: var(--navy); color: #fff !important; }
-  .cta-row { margin-top: 20px; display: flex; gap: 14px; flex-wrap: wrap; }
-
-  /* ---------- sections ---------- */
-  section { padding: 44px 0; }
-  section.alt { background: var(--card); }
-  h2.section-title {
-    color: var(--navy);
-    font-size: 24px;
-    margin: 0 0 22px 0;
-    border-bottom: 3px solid var(--orange);
-    display: inline-block;
-    padding-bottom: 8px;
-  }
-
-  .intro-grid { display: flex; gap: 36px; align-items: flex-start; }
-  .intro-copy { flex: 1.35; min-width: 280px; }
-  .intro-copy p { color: var(--text); font-size: 15.5px; margin: 0 0 14px 0; }
-
-  .photo-side {
-    flex: 1;
-    min-width: 280px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .photo-side img {
-    width: 100%;
-    border-radius: 6px;
-    display: block;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-  }
-  @media (max-width: 860px) {
-    .intro-grid { flex-wrap: wrap; }
-    .intro-copy { flex: 1 1 100%; }
-    .photo-side { flex: 1 1 100%; flex-direction: row; flex-wrap: wrap; }
-    .photo-side img { width: calc(50% - 6px); }
-  }
-
-  .avail-box {
-    background: var(--lightbg);
-    border-left: 4px solid var(--navy);
-    padding: 16px 20px;
-    font-size: 14.5px;
-    margin-top: 18px;
-  }
-  .avail-box b { color: var(--navy); }
-
-  /* ---------- stats ---------- */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-top: 8px;
-  }
-  .stat {
-    text-align: center;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--orange);
-    padding: 20px 10px;
-    border-radius: 4px;
-  }
-  .stat .num { font-size: 28px; font-weight: 700; color: var(--navy); font-family: Georgia, serif; }
-  .stat .lbl { font-size: 12.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
-
-  /* ---------- services ---------- */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  .svc {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--navy);
-    padding: 18px 20px;
-    border-radius: 3px;
-  }
-  .svc.accent { border-top-color: var(--orange); grid-column: 1 / -1; }
-  .svc h3 { margin: 0 0 6px 0; font-size: 16px; color: var(--navy); font-family: Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
-  .svc.accent h3 { color: var(--orange); }
-  .svc p { margin: 0; font-size: 14px; color: var(--muted); }
-
-  /* ---------- agency strip ---------- */
-  .agency-box {
-    background: var(--lightbg);
-    border-top: 2px solid var(--navy);
-    border-bottom: 2px solid var(--navy);
-    padding: 18px 10px;
-    text-align: center;
-  }
-  .agency-box .lbl {
-    font-size: 11.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 700;
-    margin-bottom: 10px;
-    font-family: Arial, sans-serif;
-  }
-  .agency-names {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: 0.02em;
-    font-family: Arial, sans-serif;
-  }
-  .agency-names .sep { color: var(--orange); padding: 0 6px; }
-
-  /* ---------- credentials footer ---------- */
-  .cred-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 10px;
-  }
-  .cred-grid div {
-    background: var(--lightbg);
-    text-align: center;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--navy);
-    padding: 14px 8px;
-  }
-  .cred-grid div.pending { color: var(--muted); font-weight: 400; font-style: italic; }
-
-  /* ---------- footer / brand block ---------- */
-  footer {
-    background: var(--navy-dark);
-    color: #b9c6d1;
-    padding: 40px 0 26px 0;
-    margin-top: 0;
-  }
-  .footer-grid { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
-  .footer-logo img { width: 200px; }
-  .footer-contact { font-size: 14px; }
-  .footer-contact a { color: #cfe0ee; text-decoration: none; }
-  .footer-contact a:hover { text-decoration: underline; }
-  .footer-bottom {
-    border-top: 1px solid #2C4560;
-    margin-top: 26px;
-    padding-top: 16px;
-    font-size: 12.5px;
-    color: #7f93a4;
-    text-align: center;
-  }
-
-  /* ---------- responsive ---------- */
-  @media (max-width: 720px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .services-grid { grid-template-columns: 1fr; }
-    .svc.accent { grid-column: 1; }
-    .cred-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-inner { flex-direction: column; align-items: flex-start; }
-    .badge-tag { align-self: flex-start; }
-    .agency-names { font-size: 13.5px; }
-  }
-
-  /* ---------- NMSDC certification seal (static, in header) ---------- */
-  .nmsdc-seal {
-    width: 140px;
-    flex-shrink: 0;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.18));
-  }
-  @media (max-width: 720px) {
-    .nmsdc-seal { width: 120px; margin: 4px auto 0 auto; }
-  }
-</style>
 </head>
-<body>
+<body style="margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
 
-  <div class="topbar">
-    <div class="wrap">
-      <span>New Rochelle, NY &nbsp;|&nbsp; Serving New York &amp; New Jersey</span>
-      <span><a href="tel:+13475919336">(347) 591-9336</a> &nbsp;|&nbsp; <a href="mailto:seretze@haylegroup.com">seretze@haylegroup.com</a></span>
+<div style="background:#0A1826;color:#9FB0BE;font-size:13px;padding:8px 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-family:Arial,sans-serif;letter-spacing:.02em;">
+  <span>NEW ROCHELLE, NY &nbsp;|&nbsp; SERVING NEW YORK &amp; NEW JERSEY</span>
+  <span><a href="tel:+13475919336" style="color:#9FB0BE;text-decoration:none;">(347) 591-9336</a> &nbsp;|&nbsp; <a href="mailto:seretze@haylegroup.com" style="color:#9FB0BE;text-decoration:none;">SERETZE@HAYLEGROUP.COM</a></span>
+</div>
+
+<div style="position:relative;background:#0F2438;overflow:hidden;">
+  <img src="assets/photo_4.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;">
+  <div style="position:absolute;inset:0;background:linear-gradient(115deg,#0A1826 40%,rgba(10,24,38,.55) 100%);"></div>
+  <div style="position:relative;padding:64px 40px 56px;max-width:1160px;margin:0 auto;">
+    <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+      <img src="assets/headshot.jpg" alt="Seretze Hayle, Principal" style="width:118px;height:118px;border-radius:4px;object-fit:cover;border:1.5px solid rgba(255,255,255,.5);flex-shrink:0;">
+      <div style="flex:1;min-width:320px;">
+        <div style="font:700 12px/1 Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8FA84A;margin-bottom:12px;">Transit &amp; Infrastructure Safety Consulting</div>
+        <h1 style="margin:0 0 10px;font:700 46px/1.05 Georgia,serif;color:#fff;">The Hayle Group LLC</h1>
+        <div style="font-size:14.5px;color:#B9C6D1;">Seretze Hayle, Principal &nbsp;&middot;&nbsp; (347) 591-9336 &nbsp;&middot;&nbsp; seretze@haylegroup.com</div>
+      </div>
+      <img src="assets/badge.jpg" alt="NMSDC Certified MBE badge" style="width:100px;flex-shrink:0;">
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;">
+      <a href="assets/capability-statement.pdf" target="_blank" rel="noopener" style="background:#16324F;color:#fff;text-decoration:none;font:700 14px Arial,sans-serif;padding:14px 28px;border-radius:2px;letter-spacing:.02em;">Download Capability Statement</a>
+      <a href="#contact" style="border:1.5px solid #fff;color:#fff;text-decoration:none;font:700 14px Arial,sans-serif;padding:12.5px 26px;border-radius:2px;letter-spacing:.02em;">Contact Us</a>
+      <span style="display:inline-flex;align-items:center;gap:10px;margin-left:auto;">
+        <span style="background:#8FA84A;color:#0A1826;font:700 11px Arial,sans-serif;letter-spacing:.06em;padding:7px 13px;border-radius:2px;">NMSDC CERTIFIED MBE</span>
+        <span style="background:#8FA84A;color:#0A1826;font:700 11px Arial,sans-serif;letter-spacing:.06em;padding:7px 13px;border-radius:2px;">NJ CERTIFIED MBE</span>
+      </span>
     </div>
   </div>
+</div>
 
-  <header class="hero">
-    <div class="wrap hero-inner">
-      <img class="headshot" src="headshot.jpg" alt="Seretze Hayle, Principal, The Hayle Group LLC">
-      <div class="hero-text">
-        <h1>The Hayle Group LLC</h1>
-        <div class="tagline">Transit &amp; Infrastructure Safety Consulting</div>
-        <div class="contact-strip">Seretze Hayle, Principal &nbsp;&middot;&nbsp; <a href="tel:+13475919336">(347) 591-9336</a> &nbsp;&middot;&nbsp; <a href="mailto:seretze@haylegroup.com">seretze@haylegroup.com</a></div>
-        <div class="cta-row">
-          <a class="btn" href="capability-statement.pdf" target="_blank" rel="noopener">Download Capability Statement (PDF)</a>
-          <a class="btn-outline" href="#contact">Contact Us</a>
-        </div>
-      </div>
-      <div class="badge-stack">
-        <div class="badge-tag">NMSDC&nbsp;CERTIFIED&nbsp;MBE</div>
-        <div class="badge-tag">NJ&nbsp;CERTIFIED&nbsp;MBE</div>
-      </div>
-      <a href="https://www.nmsdc.org" target="_blank" rel="noopener" title="NMSDC Certified Minority Business Enterprise">
-        <img class="nmsdc-seal" src="badge.jpg" alt="NMSDC Certified Minority Business Enterprise badge">
-      </a>
-    </div>
-  </header>
-
-  <section>
-    <div class="wrap">
-      <h2 class="section-title">About The Hayle Group</h2>
-      <div class="intro-grid">
-        <div class="intro-copy">
-          <p>The Hayle Group LLC is an NMSDC-Certified and New Jersey Certified Minority Business Enterprise (MBE) safety consulting firm specializing in transit, infrastructure, and public-sector construction safety oversight.</p>
-          <p>With 17+ years of safety experience on transit and infrastructure projects, the firm brings direct, hands-on experience within MTA/NYCT, LIRR, NJ Transit, Amtrak, and NYS DOT operating environments &mdash; including full responsibility for safety oversight, compliance enforcement, Safe Work Plan review and approval, and incident reporting in high-risk, active transit conditions.</p>
-          <p>The Hayle Group is a principal-led firm providing independent construction safety consulting and compliance services to owners, public agencies, construction managers, design-builders, and contractors throughout New York and New Jersey, with direct oversight and accountability on every engagement.</p>
-          <div class="avail-box">
-            <b>Available for:</b> Owner&rsquo;s Representative, General Contractor, Design-Builder, Emergency Response, and Short-Term Safety Coverage throughout New York and New Jersey.
-          </div>
-        </div>
-        <div class="photo-side">
-          <img src="photo_1.jpg" alt="Hayle Group safety oversight on active transit scaffold work">
-          <img src="photo_2.jpg" alt="Hayle Group site safety inspection at rebar cage installation">
-          <img src="photo_3.jpg" alt="Hayle Group safety oversight during concrete pour operations">
-          <img src="photo_4.jpg" alt="Hayle Group safety oversight on elevated steel structure">
-          <img src="photo_6.jpg" alt="Hayle Group safety oversight at active transit station">
-        </div>
+<div style="padding:52px 40px;background:#fff;max-width:1160px;margin:0 auto;">
+  <h2 style="color:#16324F;font:700 22px Georgia,serif;border-bottom:3px solid #C7511F;display:inline-block;padding-bottom:8px;margin:0 0 28px;">About The Hayle Group</h2>
+  <div style="display:flex;gap:44px;flex-wrap:wrap;">
+    <div style="flex:1.3;min-width:320px;">
+      <p style="font-size:15px;color:#2A343D;margin:0 0 14px;">The Hayle Group LLC is an NMSDC-Certified and New Jersey Certified Minority Business Enterprise (MBE) safety consulting firm specializing in transit, infrastructure, and public-sector construction safety oversight.</p>
+      <p style="font-size:15px;color:#2A343D;margin:0 0 14px;">With 17+ years of safety experience on transit and infrastructure projects, the firm brings direct, hands-on experience within MTA/NYCT, LIRR, NJ Transit, Amtrak, and NYS DOT operating environments &mdash; including full responsibility for safety oversight, compliance enforcement, Safe Work Plan review and approval, and incident reporting in high-risk, active transit conditions.</p>
+      <p style="font-size:15px;color:#2A343D;margin:0 0 20px;">The Hayle Group is a principal-led firm providing independent construction safety consulting and compliance services to owners, public agencies, construction managers, design-builders, and contractors throughout New York and New Jersey.</p>
+      <div style="background:#EDF1F4;border-left:4px solid #16324F;padding:16px 20px;font-size:14px;color:#2A343D;">
+        <b style="color:#16324F;">Available for:</b> Owner&rsquo;s Representative, General Contractor, Design-Builder, Emergency Response, and Short-Term Safety Coverage throughout New York and New Jersey.
       </div>
     </div>
-  </section>
-
-  <section class="alt">
-    <div class="wrap">
-      <div class="stats">
-        <div class="stat"><div class="num">17+</div><div class="lbl">Years Experience</div></div>
-        <div class="stat"><div class="num">10+</div><div class="lbl">Transit Agency Contracts</div></div>
-        <div class="stat"><div class="num">80+</div><div class="lbl">Safe Work Plans</div></div>
-        <div class="stat"><div class="num">2</div><div class="lbl">States Served: NY &amp; NJ</div></div>
-      </div>
+    <div style="flex:1;min-width:280px;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-self:flex-start;">
+      <img src="assets/photo_1.jpg" alt="Scaffold safety oversight" style="width:100%;height:120px;object-fit:cover;border-radius:5px;grid-column:1/-1;">
+      <img src="assets/photo_2.jpg" alt="Rebar cage inspection" style="width:100%;height:110px;object-fit:cover;border-radius:5px;">
+      <img src="assets/photo_3.jpg" alt="Concrete pour oversight" style="width:100%;height:110px;object-fit:cover;border-radius:5px;">
+      <img src="assets/photo_4.jpg" alt="Steel structure oversight" style="width:100%;height:110px;object-fit:cover;border-radius:5px;">
+      <img src="assets/photo_6.jpg" alt="Active transit station" style="width:100%;height:110px;object-fit:cover;border-radius:5px;">
     </div>
-  </section>
+  </div>
+</div>
 
-  <section>
-    <div class="wrap">
-      <h2 class="section-title">Core Services</h2>
-      <div class="services-grid">
-        <div class="svc">
-          <h3>Construction &amp; Transit Safety Management</h3>
-          <p>Site safety oversight and compliance monitoring for active transit and infrastructure projects.</p>
-        </div>
-        <div class="svc">
-          <h3>OSHA &amp; NYC Chapter 33 Compliance</h3>
-          <p>Hazard analysis, risk mitigation, incident investigation, and Tier 0&ndash;2 reporting.</p>
-        </div>
-        <div class="svc">
-          <h3>Safe Work Plans</h3>
-          <p>Author and review Safe Work Plans (SWP) and Corporate HASP.</p>
-        </div>
-        <div class="svc">
-          <h3>Track / ROW Safety</h3>
-          <p>Specialized track and right-of-way safety oversight in active transit environments (General Orders).</p>
-        </div>
-        <div class="svc accent">
-          <h3>Safety Audits &amp; Field Inspections</h3>
-          <p>Comprehensive field safety audits to ensure ongoing compliance.</p>
-        </div>
-      </div>
+<div style="background:#EDF1F4;padding:34px 40px;">
+  <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+    <div style="background:#fff;border:1px solid #DCE2E7;border-top:3px solid #C7511F;border-radius:4px;padding:20px 10px;text-align:center;"><div style="font:700 28px Georgia,serif;color:#16324F;">17+</div><div style="font:700 12px Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#5A6772;margin-top:4px;">Years Experience</div></div>
+    <div style="background:#fff;border:1px solid #DCE2E7;border-top:3px solid #C7511F;border-radius:4px;padding:20px 10px;text-align:center;"><div style="font:700 28px Georgia,serif;color:#16324F;">10+</div><div style="font:700 12px Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#5A6772;margin-top:4px;">Transit Agency Contracts</div></div>
+    <div style="background:#fff;border:1px solid #DCE2E7;border-top:3px solid #C7511F;border-radius:4px;padding:20px 10px;text-align:center;"><div style="font:700 28px Georgia,serif;color:#16324F;">80+</div><div style="font:700 12px Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#5A6772;margin-top:4px;">Safe Work Plans</div></div>
+    <div style="background:#fff;border:1px solid #DCE2E7;border-top:3px solid #C7511F;border-radius:4px;padding:20px 10px;text-align:center;"><div style="font:700 28px Georgia,serif;color:#16324F;">2</div><div style="font:700 12px Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#5A6772;margin-top:4px;">States: NY &amp; NJ</div></div>
+  </div>
+</div>
+
+<div style="padding:52px 40px;background:#fff;">
+  <div style="max-width:1160px;margin:0 auto;">
+    <h2 style="color:#16324F;font:700 22px Georgia,serif;border-bottom:3px solid #C7511F;display:inline-block;padding-bottom:8px;margin:0 0 24px;">Core Services</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="background:#fff;border:1px solid #DCE2E7;border-top:3px solid #16324F;border-radius:3px;padding:18px 20px;"><h3 style="margin:0 0 6px;font:700 15px Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#16324F;">Construction &amp; Transit Safety Management</h3><p style="margin:0;font-size:14px;color:#5A6772;">Site safety oversight and compliance monitoring for active transit and infrastructure projects.</p></div>
+      <div style="background:#fff;border:1px solid #DCE2E7;border-top:3px solid #16324F;border-radius:3px;padding:18px 20px;"><h3 style="margin:0 0 6px;font:700 15px Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#16324F;">OSHA &amp; NYC Chapter 33 Compliance</h3><p style="margin:0;font-size:14px;color:#5A6772;">Hazard analysis, risk mitigation, incident investigation, and Tier 0&ndash;2 reporting.</p></div>
+      <div style="background:#fff;border:1px solid #DCE2E7;border-top:3px solid #16324F;border-radius:3px;padding:18px 20px;"><h3 style="margin:0 0 6px;font:700 15px Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#16324F;">Safe Work Plans</h3><p style="margin:0;font-size:14px;color:#5A6772;">Author and review Safe Work Plans (SWP) and Corporate HASP.</p></div>
+      <div style="background:#fff;border:1px solid #DCE2E7;border-top:3px solid #16324F;border-radius:3px;padding:18px 20px;"><h3 style="margin:0 0 6px;font:700 15px Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#16324F;">Track / ROW Safety</h3><p style="margin:0;font-size:14px;color:#5A6772;">Specialized track and right-of-way safety oversight in active transit environments (General Orders).</p></div>
+      <div style="grid-column:1/-1;background:#fff;border:1px solid #DCE2E7;border-top:3px solid #C7511F;border-radius:3px;padding:18px 20px;"><h3 style="margin:0 0 6px;font:700 15px Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#C7511F;">Safety Audits &amp; Field Inspections</h3><p style="margin:0;font-size:14px;color:#5A6772;">Comprehensive field safety audits to ensure ongoing compliance.</p></div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section class="alt">
-    <div class="wrap">
-      <div class="agency-box">
-        <div class="lbl">Direct Experience Within</div>
-        <div class="agency-names">
-          MTA<span class="sep">&middot;</span>NYCT<span class="sep">&middot;</span>LIRR<span class="sep">&middot;</span>NJ TRANSIT<span class="sep">&middot;</span>TBTA<span class="sep">&middot;</span>NYC DOT<span class="sep">&middot;</span>NYSDOT<span class="sep">&middot;</span>AMTRAK
-        </div>
-      </div>
+<div style="background:#EDF1F4;border-top:2px solid #16324F;border-bottom:2px solid #16324F;padding:22px 40px;text-align:center;">
+  <div style="font:700 11.5px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5A6772;margin-bottom:10px;">Direct Experience Within</div>
+  <div style="font:700 16px Arial,sans-serif;color:#16324F;letter-spacing:.02em;">MTA <span style="color:#C7511F;">&middot;</span> NYCT <span style="color:#C7511F;">&middot;</span> LIRR <span style="color:#C7511F;">&middot;</span> NJ TRANSIT <span style="color:#C7511F;">&middot;</span> TBTA <span style="color:#C7511F;">&middot;</span> NYC DOT <span style="color:#C7511F;">&middot;</span> NYSDOT <span style="color:#C7511F;">&middot;</span> AMTRAK</div>
+</div>
+
+<div id="contact" style="padding:48px 40px;background:#fff;">
+  <div style="max-width:1160px;margin:0 auto;">
+    <h2 style="color:#16324F;font:700 22px Georgia,serif;border-bottom:3px solid #C7511F;display:inline-block;padding-bottom:8px;margin:0 0 22px;">Certifications &amp; Registrations</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#DCE2E7;border:1px solid #DCE2E7;margin-bottom:24px;">
+      <div style="background:#EDF1F4;text-align:center;font:700 13px Arial,sans-serif;color:#16324F;padding:14px 8px;">&#10003; NMSDC Certified MBE</div>
+      <div style="background:#EDF1F4;text-align:center;font:700 13px Arial,sans-serif;color:#16324F;padding:14px 8px;">&#10003; NJ Certified MBE</div>
+      <div style="background:#EDF1F4;text-align:center;font:700 13px Arial,sans-serif;color:#16324F;padding:14px 8px;">&#10003; SAM.gov Registered</div>
+      <div style="background:#EDF1F4;text-align:center;font:700 13px Arial,sans-serif;color:#16324F;padding:14px 8px;">&#10003; PASSPort Approved</div>
     </div>
-  </section>
+    <a href="assets/capability-statement.pdf" target="_blank" rel="noopener" style="background:#16324F;color:#fff;text-decoration:none;font:700 14px Arial,sans-serif;padding:13px 26px;border-radius:4px;display:inline-block;">View Full Capability Statement (PDF)</a>
+  </div>
+</div>
 
-  <section id="contact">
-    <div class="wrap">
-      <h2 class="section-title">Certifications &amp; Registrations</h2>
-      <div class="cred-grid">
-        <div>&#10003; NMSDC Certified MBE</div>
-        <div>&#10003; NJ Certified MBE</div>
-        <div>&#10003; SAM.gov Registered</div>
-        <div>&#10003; PASSPort Approved</div>
-      </div>
-      <div class="cta-row">
-        <a class="btn" href="capability-statement.pdf" target="_blank" rel="noopener">View Full Capability Statement (PDF)</a>
-      </div>
+<footer style="background:#0F2438;color:#B9C6D1;padding:36px 40px 22px;">
+  <div style="max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;">
+    <img src="assets/logo.jpg" alt="The Hayle Group LLC logo" style="width:170px;">
+    <div style="font-size:14px;">
+      <div style="color:#fff;font-weight:700;">Seretze Hayle, Principal</div>
+      <div><a href="tel:+13475919336" style="color:#cfe0ee;text-decoration:none;">(347) 591-9336</a></div>
+      <div><a href="mailto:seretze@haylegroup.com" style="color:#cfe0ee;text-decoration:none;">seretze@haylegroup.com</a></div>
+      <div>New Rochelle, NY &middot; Serving NY &amp; NJ</div>
     </div>
-  </section>
+  </div>
+  <div style="max-width:1160px;margin:22px auto 0;border-top:1px solid #2C4560;padding-top:14px;font-size:12px;color:#7F93A4;text-align:center;">&copy; <span id="yr"></span> The Hayle Group LLC. All rights reserved.</div>
+</footer>
 
-  <footer>
-    <div class="wrap footer-grid">
-      <div class="footer-logo"><img src="logo.jpg" alt="The Hayle Group LLC logo"></div>
-      <div class="footer-contact">
-        <div><b>Seretze Hayle</b>, Principal</div>
-        <div><a href="tel:+13475919336">(347) 591-9336</a></div>
-        <div><a href="mailto:seretze@haylegroup.com">seretze@haylegroup.com</a></div>
-        <div>New Rochelle, NY &middot; Serving NY &amp; NJ</div>
-      </div>
-    </div>
-    <div class="footer-bottom">&copy; <span id="yr"></span> The Hayle Group LLC. All rights reserved.</div>
-  </footer>
-
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
