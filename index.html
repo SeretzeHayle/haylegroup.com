@@ -269,9 +269,28 @@
     .badge-tag { align-self: flex-start; }
     .agency-names { font-size: 13.5px; }
   }
+
+  /* ---------- floating certification seal ---------- */
+  .nmsdc-float {
+    position: fixed;
+    top: 40px;
+    right: 22px;
+    width: 82px;
+    z-index: 500;
+    filter: drop-shadow(0 3px 10px rgba(0,0,0,0.28));
+    transition: transform 0.15s ease;
+  }
+  .nmsdc-float:hover { transform: scale(1.05); }
+  @media (max-width: 720px) {
+    .nmsdc-float { width: 50px; top: 68px; right: 10px; }
+  }
 </style>
 </head>
 <body>
+
+  <a href="https://www.nmsdc.org" target="_blank" rel="noopener" title="NMSDC Certified Minority Business Enterprise">
+    <img class="nmsdc-float" src="badge.jpg" alt="NMSDC Certified Minority Business Enterprise badge">
+  </a>
 
   <div class="topbar">
     <div class="wrap">
